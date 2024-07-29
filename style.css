@@ -338,11 +338,11 @@ input:focus ~ label,input:valid ~ label{
   }
 
   .herofooter {
-    position: absolute;
+    /* position: absolute; */
     top: 30%;
     left: 0%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     background: gray;
   }
 
