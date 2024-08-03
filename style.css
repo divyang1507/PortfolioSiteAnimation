@@ -12,12 +12,11 @@ body {
   height: 100%;
 }
 
-#main {
-  /* width: 100%; */
-  /* position: relative; */
-  /* overflow-x: hidden; */
-
-}
+/* #main {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+} */
 
 #circle {
   border-radius: 100px;
@@ -37,6 +36,7 @@ nav {
   width: 100%;
   padding: 16px 0 16px 0;
   z-index: 111;
+  backdrop-filter: blur(10px);
 }
 
 .navbutton {
@@ -52,7 +52,11 @@ nav {
 .navmenu {
   margin: 0 24px 0 24px;
 }
-
+.logo a {
+  color : white;
+  display: flex;
+  align-items: center;
+}
 .navmenu {
   display: flex;
   align-items: center;
@@ -60,8 +64,13 @@ nav {
 }
 
 .link {
+  /* font-weight: bold; */
+  color: white;
+}
+.link:hover {
   font-weight: bold;
-  color: black;
+  color: #c4c4c4;
+  
 }
 
 .textcontainer {
@@ -81,8 +90,17 @@ nav {
   /* background: #ffa8a8; */
 
 }
-
+.image{
+  position: absolute;
+  z-index: -1;
+   filter: brightness(40%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+  /* background-color: ; */
+}
 .herosection {
+  color: white;
   width: 80%;
   margin: auto;
   display: flex;
@@ -103,6 +121,7 @@ nav {
 }
 
 .herosection p {
+  color: #c4c4c4;
   text-align: center;
   font-size: 24px;
   margin: auto;
@@ -122,14 +141,14 @@ nav {
   top: 30%;
   left: 0%;
   display: flex;
-  background: gray;
+  background: black;
   border-radius: 0 10px 10px 0;
   flex-direction: column
 }
 
 .aboutpage {
   height: fit-content;
-  margin: auto;
+  margin: 4rem auto auto auto;
   /* background: rgba(255, 255, 0, 0.244); */
   z-index: 3;
   width: 80vw;
@@ -281,7 +300,20 @@ input:focus ~ label,input:valid ~ label{
   transform: translateY(-24px) ;
   font-size: 0.8rem;
 }
-
+form> button {
+  margin: 2rem 0 0 0; 
+  padding: 10px 20px;
+  border: none;
+    cursor: pointer;
+}
+form> button:hover {
+  margin: 2rem 0 0 0; 
+  padding: 10px 20px;
+  border: none;
+  backgounrd-color: black;
+  color: white;
+    cursor: pointer;
+}
 @media only screen and (max-width: 768px) {
   .logo {
     z-index: 9999;
@@ -295,10 +327,10 @@ input:focus ~ label,input:valid ~ label{
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: red;
+    background-color: yellow;
     width: 100vw;
     height: 100vh;
-    top: 0;
+    top:0;
     margin: 0;
     align-items: center;
     justify-content: center;
@@ -338,13 +370,28 @@ input:focus ~ label,input:valid ~ label{
   }
 
   .herofooter {
-    /* position: absolute; */
+    position: absolute;
+    top: 70%;
+    left:18%;
+  
+    display: flex;
+    background: gray;
+    border-radius: 10px 10px;
+    flex-direction: row
+  }
+/* .homepage{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+} */
+  /* .herofooter {
+    position: relative;
     top: 30%;
     left: 0%;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: row;
     background: gray;
-  }
+  } */
 
   .aboutContaienr {
     display: flex;

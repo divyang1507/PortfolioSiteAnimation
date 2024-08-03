@@ -2,14 +2,29 @@
 function toggleMenu() {
   const navLinks = document.querySelector('.navmenu');
   navLinks.classList.toggle('show');
-  gsap.to("show", {
-    backgroundColor: "#000000",
-    color: "#ffffff",
-    duration: 0.5,
-  });
+
+ // const navtime = gsap.timeline()
+ //  navtime.from(".show", {
+ //    opacity:0,
+ //    backgroundColor: "red",
+ //    color: "#ffffff",
+ //    duration: 0.5,
+ //    y:-100
+ //  }).from("link",{
+ //    y:-50,
+ //    opacity:0,
+ //    delay:0.5,
+ //    color: "#ffffff",
+ //  })
 }
 
+//------------------------------------
+
 const text = SplitType.create('.splittype', { types: 'words' })
+
+
+//------------------------------------
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,6 +65,9 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
 });
 ScrollTrigger.addEventListener("refresh", () => scroll.update());
 ScrollTrigger.refresh();
+
+//------------------------------------
+
 // function circlefollower() {
 //   window.addEventListener("mousemove", function (details) {
 //     // console.log(details.clientX, details.clientY)
@@ -59,11 +77,20 @@ ScrollTrigger.refresh();
 //   });
 // }
 // circlefollower();
-// let mm = gsap.matchMedia();
-// mm.add("(min-width: 768px)", () => {
-gsap.to("nav", {
-  backgroundColor: "#000000",
-  color: "#ffffff",
+
+
+
+
+//let mm = gsap.matchMedia();
+ // mm.add("(min-width: 768px)", () => {
+
+//------------------------------------
+
+
+//for background changing of navbar 
+// gsap.to(".nav, .link, .logo > a", {
+gsap.to(".nav", {
+  backgroundColor: '#000000',
   duration: 0.5,
   scrollTrigger: {
     trigger: "nav",
@@ -71,19 +98,12 @@ gsap.to("nav", {
     end: "top -11%",
     scrub: 2,
   },
-});
+})
+  
 
-gsap.to("a", {
-  color: "#ffffff",
-  duration: 0.2,
-  scrollTrigger: {
-    trigger: "a",
-    start: "top -10%",
-    end: "top -10",
-    scrub: 1,
-  },
-});
-// })
+
+
+
 const tl = gsap.timeline();
 const tl2 = gsap.timeline();
 tl.from(".logo, .navmenu", {
@@ -138,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const arrow = valueblock.querySelector('.fa-arrow-right');
     const timeline = gsap.timeline({ paused: true })
     timeline.from(text, {
-      y: -50,
+      y: -25,
       display: 'none',
       opacity: 0
     }, "a").from(arrow,{
