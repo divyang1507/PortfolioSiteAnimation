@@ -13,6 +13,7 @@ document.querySelectorAll('.navmenu a').forEach(anchor => {
   });
 });
 
+
 function toggleMenu() {
   const navLinks = document.querySelector('.navmenu');
   navLinks.classList.toggle('show');
@@ -42,8 +43,8 @@ gsap.to("nav", {
   duration: 0.5,
   scrollTrigger: {
     trigger: "nav",
-    start: "top 70%",
-    end: "top 60%",
+    start: "top -10%",
+    end: "top -11%",
     scrub: 1,
     // markers: true
   },
@@ -118,7 +119,7 @@ tl3.from(".aboutText", {
     top: "top 60%",
     end: "top 70%",
     scrub: 1,
-    markers: true
+    // markers: true
   },
 }).from(".valueContainer, .valueblock", {
   x: 800,
@@ -130,7 +131,7 @@ tl3.from(".aboutText", {
     end: "top 70%",
     scrub: 1,
     stagger: 0.2,
-    markers: true
+    // markers: true
   }
 }).from(".contactTitle", {
   y: -100,
@@ -143,7 +144,42 @@ tl3.from(".aboutText", {
     end: "top 30%",
     scrub: 1,
     stagger: 0.2,
-    markers: true
+    // markers: true
+  }
+}).from(".contactText", {
+  y: -100,
+  opacity: 0,
+  duration: 0.5,
+  scrollTrigger: {
+    trigger: ".contactTitle",
+    scroller: "body",
+    top: "top 40%",
+    end: "top 30%",
+    scrub: 1,
+    stagger: 0.2,
+    // markers: true
+  }
+}).from(".contactleft", {
+  x: -800,
+  duration: 0.5,
+  scrollTrigger: {
+    trigger: ".contactleft",
+    scroller: "body",
+    top: "top 60%",
+    end: "top 70%",
+    scrub: 1,
+    // markers: true
+  }
+}).from(".contactright", {
+  x: 800,
+  duration: 0.5,
+  scrollTrigger: {
+    trigger: ".contactleft",
+    scroller: "body",
+    top: "top 60%",
+    end: "top 70%",
+    scrub: 1,
+    // markers: true
   }
 })
 

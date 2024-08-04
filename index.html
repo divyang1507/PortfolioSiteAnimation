@@ -24,20 +24,20 @@
       <i class="fa-solid fa-bars"></i>
     </button>
     <div class="navmenu">
-      <a href="" data-target="#home" class="link">Home</a>
-      <a href="" data-target="#about" class="link">About</a>
-      <a href="" data-target="#project" class="link">Project</a>
-      <a href="" data-target="#contact" class="link">Contact</a>
+      <a href="" onClick='toggleMenu()' data-target="#home" class="link">Home</a>
+      <a href="" onClick='toggleMenu()' data-target="#about" class="link">About</a>
+      <a href="" onClick='toggleMenu()' data-target="#project" class="link">Project</a>
+      <a href="" onClick='toggleMenu()' data-target="#contact" class="link">Contact</a>
     </div>
   </nav>
-  <div class="scroll-container" id="main">
+  <div class="" id="main">
 
 
     <!-- <spline-viewer class="spline" url="https://prod.spline.design/FdEWm0er4A76qUWv/scene.splinecode"></spline-viewer> -->
 
     <section id="home" class="homepage">
-      <img class="image" src="ITimage (1).jpg" alt="Girl in a jacket">
-      <div class="herosection">
+      <img class="image parallax-div" src="ITimage (1).jpg" alt="Girl in a jacket">
+      <div class="herosection parallax-div">
         <div class="textcontainer">
           <h1 class="splittype">Think IT, Think Next</h1>
         </div>
@@ -116,7 +116,8 @@
         <h1 class="contactTitle">
           Contact us
         </h1>
-        <p class="contactText">Let's Connect and Create Something Amazing Together We look forward to collaborating with you.
+        <p class="contactText">Let's Connect and Create Something Amazing Together We look forward to collaborating with
+          you.
         </p>
         <div class=contactall>
           <div class="contactleft">
@@ -147,7 +148,7 @@
                 <label for="name"> Email</label>
               </div>
               <div class="inputbox">
-                <input type="text" required />
+                <textarea type="text" required></textarea>
                 <label for="name"> Message</label>
               </div>
               <button class="btn"> Contact us
@@ -166,6 +167,32 @@
 
 
     </section>
+    <footer>
+      <div class="footer">
+        <div class="row">
+
+            <a href="#"> <i class="fa-brands fa-facebook"></i></a>
+            <a href="#"> <i class="fa-brands fa-linkedin"></i></a>
+           <a href="#">  <i class="fa-brands fa-github"></i></a>
+           <a href="#">  <i class="fa-brands fa-behance"></i></a>
+           <a href="#">  <i class="fa-brands fa-dribbble"></i></a>
+        </div>
+
+        <div class="row">
+          <ul>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
+        </div>
+
+        <div class="row">
+          INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
+        </div>
+      </div>
+    </footer>
 
   </div>
 
