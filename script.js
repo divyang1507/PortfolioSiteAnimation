@@ -1,24 +1,16 @@
-window.addEventListener('load', () => {
-  setTimeout(() => {
 
-    gsap.from(".spinner > div", {
-      duration: 0.4,
-      y: 100,
-      ease: "power1.out",
-      stagger: 0.2,
-      opacity: 0,
-      // delay: 0.5,
-      onComplete: () => {
-        document.getElementById('preloader').style.display = 'none';
-        document.getElementById('navbar').style.display = 'flex';
-        document.getElementById('main').style.display = 'block';
-        tl.play();
-        tl2.play();
+document.querySelectorAll('.navmenu a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: {
+        y: this.getAttribute('data-target'),
+        offsetY: 100,
       }
-    })
-
-
-  }, 100); // 1-second delay
+    }
+    );
+  });
 });
 
 function toggleMenu() {
@@ -43,7 +35,156 @@ function toggleMenu() {
 //------------------------------------
 
 const text = SplitType.create('.splittype', { types: 'words' })
-const loadtext = SplitType.create('.spinner', { types: 'words' })
+
+
+gsap.to("nav", {
+  backgroundColor: '#000000',
+  duration: 0.5,
+  scrollTrigger: {
+    trigger: "nav",
+    start: "top 70%",
+    end: "top 60%",
+    scrub: 1,
+    // markers: true
+  },
+})
+
+let aboutText = document.querySelector(".aboutText");
+let animation = gsap.to(".aboutText", {
+  // backgroundColor: '#000000',
+  backgroundImage: "linear-gradient(to right top, black, #333333)",
+  duration: 0.2,
+  rotateY: -10,
+  rotateX: -5,
+})
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+if (!isTouchDevice) {
+  console.log('Desktop')
+  aboutText.addEventListener("mouseenter", () => animation.play());
+  aboutText.addEventListener("mouseleave", () => animation.reverse());
+} else {
+  console.log('mobile')
+  aboutText.addEventListener("touchstart", () => animation.play());
+  aboutText.addEventListener("touchend", () => animation.reverse());
+  aboutText.addEventListener("touchcancel", () => animation.reverse());
+}
+
+// ------------------------------------
+// moving text up effect animation 
+const tl = gsap.timeline();
+const tl2 = gsap.timeline();
+const tl3 = gsap.timeline();
+
+
+tl.from(".logo, .navmenu, .logo>a, .link", {
+  duration: 0.5,
+  color: 'black',
+  y: -100,
+  ease: "power1.out",
+  stagger: 0.2,
+  delay: 1
+});
+
+tl2
+  .from(".textcontainer h1 div", {
+    duration: 0.5,
+    y: 100,
+    ease: "power1.out",
+    stagger: 0.1,
+    delay: 0.5,
+    scrub: 1,
+  })
+  .from(".textcontainer h2 div", {
+    duration: 0.1,
+    y: 100,
+    ease: "power1.out",
+    stagger: 0.2,
+    // delay: 0.5,
+  })
+  .from(".textcontainer p", {
+    duration: 0.2,
+    y: 500,
+    ease: "power1.out",
+    stagger: 0.1,
+    // delay: 0.5,
+  });
+
+tl3.from(".aboutText", {
+  x: -800,
+  duration: 0.5,
+  scrollTrigger: {
+    trigger: ".aboutText",
+    scroller: "body",
+    top: "top 60%",
+    end: "top 70%",
+    scrub: 1,
+    markers: true
+  },
+}).from(".valueContainer, .valueblock", {
+  x: 800,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".valueContainer",
+    scroller: "body",
+    top: "top 60%",
+    end: "top 70%",
+    scrub: 1,
+    stagger: 0.2,
+    markers: true
+  }
+}).from(".contactTitle", {
+  y: -100,
+  opacity: 0,
+  duration: 0.5,
+  scrollTrigger: {
+    trigger: ".contactTitle",
+    scroller: "body",
+    top: "top 40%",
+    end: "top 30%",
+    scrub: 1,
+    stagger: 0.2,
+    markers: true
+  }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  const block = document.querySelectorAll('.valueblock')
+
+  block.forEach(valueblock => {
+    const text = valueblock.querySelector('.valueHeading p');
+    const arrow = valueblock.querySelector('.fa-arrow-right');
+    const timeline = gsap.timeline({ paused: true })
+    timeline.from(text, {
+      y: -25,
+      display: 'none',
+      opacity: 0
+    }, "a").from(arrow, {
+      rotateZ: "45"
+    }, "a").to(valueblock, {
+      paddingBottom: "3.5rem",
+    }, "a")
+    if (!isTouchDevice) {
+      valueblock.addEventListener("mouseenter", () => {
+        timeline.play()
+      });
+      valueblock.addEventListener("mouseleave", () => {
+        console.log('hi123')
+        timeline.reverse()
+      })
+    } else {
+      valueblock.addEventListener("touchstart", () => timeline.play());
+      valueblock.addEventListener("touchend", () => timeline.reverse());
+      valueblock.addEventListener("touchcancel", () => timeline.reverse());
+    }
+  })
+})
+
+
+
+
+
+
+
 
 
 
@@ -52,11 +193,6 @@ const loadtext = SplitType.create('.spinner', { types: 'words' })
 
 
 
-ScrollTrigger.defaults({
-  // scroller: "[data-scroll-container]",
-  scroller: "body",
-  markers: false,
-});
 
 // const scroll = new LocomotiveScroll({
 //   el: document.querySelector("[data-scroll-container]"),
@@ -112,125 +248,3 @@ ScrollTrigger.defaults({
 
 //for background changing of navbar 
 // gsap.to(".nav, .link, .logo > a", {
-gsap.to("nav", {
-  backgroundColor: '#000000',
-  duration: 0.5,
-  scrollTrigger: {
-    // scroller:'#main',
-    trigger: "nav",
-    start: "top 70%",
-    end: "top 60%",
-    scrub: 1,
-    markers: true
-  },
-})
-
-let aboutText = document.querySelector(".aboutText");
-let animation = gsap.to(".aboutText", {
-  // backgroundColor: '#000000',
-  backgroundImage: "linear-gradient(to right top, black, #333333)",
-  duration: 0.2,
-  rotateY: -10,
-  rotateX: -5,
-})
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-if (!isTouchDevice) {
-  console.log('Desktop')
-  aboutText.addEventListener("mouseenter", () => animation.play());
-  aboutText.addEventListener("mouseleave", () => animation.reverse());
-} else {
-  console.log('mobile')
-  aboutText.addEventListener("touchstart", () => animation.play());
-  aboutText.addEventListener("touchend", () => animation.reverse());
-  aboutText.addEventListener("touchcancel", () => animation.reverse());
-}
-
-// ------------------------------------
-// moving text up effect animation 
-const tl = gsap.timeline();
-const tl2 = gsap.timeline();
-
-
-tl.from(".logo, .navmenu, .logo>a, .link", {
-  duration: 0.5,
-  color: 'black',
-  y: -100,
-  ease: "power1.out",
-  stagger: 0.2,
-  delay: 1
-});
-
-tl2
-  .from(".textcontainer h1 div", {
-    duration: 0.5,
-    y: 100,
-    ease: "power1.out",
-    stagger: 0.1,
-    delay: 0.5,
-    scrub: 1,
-  })
-  .from(".textcontainer h2 div", {
-    duration: 0.1,
-    y: 100,
-    ease: "power1.out",
-    stagger: 0.2,
-    // delay: 0.5,
-  })
-  .from(".textcontainer p", {
-    duration: 0.2,
-    y: 500,
-    ease: "power1.out",
-    stagger: 0.1,
-    // delay: 0.5,
-  });
-
-// tl2.play();
-
-// ScrollTrigger.create({
-//   // animation: tl2,
-//   trigger: ".textcontainer",
-//   start: "top 40",
-//   end: "bottom bottom",
-//   scrub: true,
-//   delay: 2,
-//   onEnter: () => tl2.reverse(),
-//   onLeaveBack: () => tl2.play(),
-//   // markers: true,
-// });
-document.addEventListener('DOMContentLoaded', () => {
-  const block = document.querySelectorAll('.valueblock')
-
-  block.forEach(valueblock => {
-    const text = valueblock.querySelector('.valueHeading p');
-    const arrow = valueblock.querySelector('.fa-arrow-right');
-    const timeline = gsap.timeline({ paused: true })
-    timeline.from(text, {
-      y: -25,
-      display: 'none',
-      opacity: 0
-    }, "a").from(arrow, {
-      rotateZ: "45"
-    }, "a").to(valueblock, {
-      paddingBottom: "3.5rem",
-      // height: "fit-content",
-    }, "a")
-    if (!isTouchDevice) {
-    valueblock.addEventListener("mouseenter", () => {
-      timeline.play()
-    });
-    valueblock.addEventListener("mouseleave", () => {
-      console.log('hi123')
-      timeline.reverse()
-    })}else{
-
-        valueblock.addEventListener("touchstart", () => timeline.play());
-        valueblock.addEventListener("touchend", () => timeline.reverse());
-        valueblock.addEventListener("touchcancel", () => timeline.reverse());
-      
-    }
-
-
-
-    
-  })
-})

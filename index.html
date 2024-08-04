@@ -15,11 +15,6 @@
 </head>
 
 <body>
-  <div id="preloader">
-    <div class="spinner">
-      Thin Next Innovation
-    </div>
-  </div>
   <!-- <div id="circle"></div> -->
   <nav id='navbar' class="nav">
     <h1 class="logo">
@@ -29,13 +24,13 @@
       <i class="fa-solid fa-bars"></i>
     </button>
     <div class="navmenu">
-      <a href="" class="link">Home</a>
-      <a href="" class="link">About</a>
-      <a href="" class="link">Project</a>
-      <a href="" class="link">Contact</a>
+      <a href="" data-target="#home" class="link">Home</a>
+      <a href="" data-target="#about" class="link">About</a>
+      <a href="" data-target="#project" class="link">Project</a>
+      <a href="" data-target="#contact" class="link">Contact</a>
     </div>
   </nav>
-  <div class="scroll-container" id="main" data-scroll-container>
+  <div class="scroll-container" id="main">
 
 
     <!-- <spline-viewer class="spline" url="https://prod.spline.design/FdEWm0er4A76qUWv/scene.splinecode"></spline-viewer> -->
@@ -121,7 +116,7 @@
         <h1 class="contactTitle">
           Contact us
         </h1>
-        <p>Let's Connect and Create Something Amazing Together We look forward to collaborating with you.
+        <p class="contactText">Let's Connect and Create Something Amazing Together We look forward to collaborating with you.
         </p>
         <div class=contactall>
           <div class="contactleft">
@@ -188,10 +183,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
     integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 
   <script src="script.js"></script>
   <script src="swiper.js"></script>
