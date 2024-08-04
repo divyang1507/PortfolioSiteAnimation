@@ -15,8 +15,13 @@
 </head>
 
 <body>
+  <div id="preloader">
+    <div class="spinner">
+      Thin Next Innovation
+    </div>
+  </div>
   <!-- <div id="circle"></div> -->
-  <nav class="nav">
+  <nav id='navbar' class="nav">
     <h1 class="logo">
       <a href="" class=""><img src="./public/NextLogo.png" alt="Girl in a jacket" width="50"> Think Next Innovation</a>
     </h1>
@@ -36,17 +41,17 @@
     <!-- <spline-viewer class="spline" url="https://prod.spline.design/FdEWm0er4A76qUWv/scene.splinecode"></spline-viewer> -->
 
     <section id="home" class="homepage">
-<img class="image" src="ITimage (1).jpg" alt="Girl in a jacket" >
+      <img class="image" src="ITimage (1).jpg" alt="Girl in a jacket">
       <div class="herosection">
         <div class="textcontainer">
           <h1 class="splittype">Think IT, Think Next</h1>
         </div>
         <div class="textcontainer">
-          <h2 class="splittype">Expert in IT Sales Agency </h2>
+          <h2 class="splittype">Expert in IT Solutions </h2>
         </div>
         <div class="textcontainer">
           <p class="">
-            At Think Next Innovation, Transforming ideas into innovative IT solutions. Partner with us to bring your
+            At Think Next Innovation, Transforming ideas into innovative solutions. Partner with us to bring your
             visions to life and stay
             ahead in the digital landscape.
           </p>
@@ -66,12 +71,14 @@
       <h1 class="aboutTitle">About us</h1>
 
       <div class="aboutContaienr">
-        <p class='aboutText'>
-          At Think Next Innovation, we are passionate about providing top-tier IT solutions that drive success for our
-          clients. Our team of skilled professionals is dedicated to delivering projects on time, every time. With a
-          commitment to excellence and innovation, we ensure that your technology needs are met with the highest
-          standards of quality and reliability.
-        </p>
+        <div class="aboutText">
+          <p class=''>
+            At Think Next Innovation, we are passionate about providing top-tier IT solutions that drive success for our
+            clients. Our team of skilled professionals is dedicated to delivering projects on time, every time. With a
+            commitment to excellence and innovation, we ensure that your technology needs are met with the highest
+            standards of quality and reliability.
+          </p>
+        </div>
 
         <div class="valueContainer">
           <h2>Our Core Values:</h2>
@@ -111,7 +118,7 @@
     <section id="project" class="projectpage"></section>
     <section id="contact" class="contactpage">
       <div class="">
-        <h1>
+        <h1 class="contactTitle">
           Contact us
         </h1>
         <p>Let's Connect and Create Something Amazing Together We look forward to collaborating with you.
@@ -122,19 +129,16 @@
               Get in Touch
             </h2>
             <p>
-              Email: your-email@example.com
+              Email: info@thinknextinnovation.com
             </p>
             <p>
-              Phone: [Your Phone Number]
+              Phone: +91 999 999 999
 
             </p>
             <p>
-              Location: [Your City, Country]
+              Location: Ahmedabad, Gujarat, India
             </p>
 
-            <p>
-              Location: [Your City, Country]
-            </p>
 
           </div>
           <div class=contactright>
@@ -151,7 +155,9 @@
                 <input type="text" required />
                 <label for="name"> Message</label>
               </div>
-              <button> Contact us </button>
+              <button class="btn"> Contact us
+              </button>
+
             </form>
 
           </div>
