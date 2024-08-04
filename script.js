@@ -21,7 +21,6 @@ window.addEventListener('load', () => {
   }, 100); // 1-second delay
 });
 
-gsap.registerPlugin()
 function toggleMenu() {
   const navLinks = document.querySelector('.navmenu');
   navLinks.classList.toggle('show');
@@ -51,45 +50,44 @@ const loadtext = SplitType.create('.spinner', { types: 'words' })
 //------------------------------------
 
 
-gsap.registerPlugin(ScrollTrigger);
 
 
 ScrollTrigger.defaults({
-  scroller: "[data-scroll-container]",
-  // scroller: "body",
+  // scroller: "[data-scroll-container]",
+  scroller: "body",
   markers: false,
 });
 
-const scroll = new LocomotiveScroll({
-  el: document.querySelector("[data-scroll-container]"),
-  smooth: true,
-});
+// const scroll = new LocomotiveScroll({
+//   el: document.querySelector("[data-scroll-container]"),
+//   smooth: true,
+// });
 
-scroll.on("scroll", (instance) => {
-  ScrollTrigger.update();
-  document.documentElement.setAttribute("data-scrolling", instance.direction);
-});
+// scroll.on("scroll", (instance) => {
+//   ScrollTrigger.update();
+//   document.documentElement.setAttribute("data-scrolling", instance.direction);
+// });
 
-ScrollTrigger.scrollerProxy("[data-scroll-container]", {
-  scrollTop(value) {
-    return arguments.length
-      ? scroll.scrollTo(value, 0, 0)
-      : scroll.scroll.instance.scroll.y;
-  },
-  getBoundingClientRect() {
-    return {
-      top: 0,
-      left: 0,
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
-  },
-  pinType: document.querySelector("[data-scroll-container]").style.transform
-    ? "transform"
-    : "fixed",
-});
-ScrollTrigger.addEventListener("refresh", () => scroll.update());
-ScrollTrigger.refresh();
+// ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+//   scrollTop(value) {
+//     return arguments.length
+//       ? scroll.scrollTo(value, 0, 0)
+//       : scroll.scroll.instance.scroll.y;
+//   },
+//   getBoundingClientRect() {
+//     return {
+//       top: 0,
+//       left: 0,
+//       width: window.innerWidth,
+//       height: window.innerHeight,
+//     };
+//   },
+//   pinType: document.querySelector("[data-scroll-container]").style.transform
+//     ? "transform"
+//     : "fixed",
+// });
+// ScrollTrigger.addEventListener("refresh", () => scroll.update());
+// ScrollTrigger.refresh();
 
 //------------------------------------
 
@@ -118,10 +116,12 @@ gsap.to("nav", {
   backgroundColor: '#000000',
   duration: 0.5,
   scrollTrigger: {
+    // scroller:'#main',
     trigger: "nav",
-    start: "top -10%",
-    end: "top -11%",
+    start: "top 70%",
+    end: "top 60%",
     scrub: 1,
+    markers: true
   },
 })
 
@@ -211,18 +211,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }, "a").from(arrow, {
       rotateZ: "45"
     }, "a").to(valueblock, {
-      paddingBottom: "3rem",
+      paddingBottom: "3.5rem",
       // height: "fit-content",
     }, "a")
-
+    if (!isTouchDevice) {
     valueblock.addEventListener("mouseenter", () => {
       timeline.play()
     });
     valueblock.addEventListener("mouseleave", () => {
       console.log('hi123')
       timeline.reverse()
-    })
+    })}else{
+
+        valueblock.addEventListener("touchstart", () => timeline.play());
+        valueblock.addEventListener("touchend", () => timeline.reverse());
+        valueblock.addEventListener("touchcancel", () => timeline.reverse());
+      
+    }
+
+
+
+    
   })
 })
-
-

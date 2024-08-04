@@ -8,11 +8,11 @@
 
 html,
 body {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 #preloader{
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: #000;
   color: white;
@@ -28,12 +28,12 @@ body {
   font-size: 4rem;
   clip-path: view-box
 }
-/* #main {
-  display: none;
-  width: 100%;
-  position: relative;
-  overflow-x: hidden;
-} */
+#main {
+  /* display: none; */
+  /* width: 100%; */
+  /* position: relative; */
+  /* overflow-x: hidden; */
+}
 
 #circle {
   border-radius: 100px;
@@ -100,7 +100,7 @@ nav {
 }
 
 .homepage {
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -169,12 +169,13 @@ nav {
   flex-direction: column
 }
 
-.aboutpage {
-  height: fit-content;
+.aboutpage, .contactpage {
+  /* height: fit-content; */
   margin: 4rem auto auto auto;
   /* background: rgba(255, 255, 0, 0.244); */
   z-index: 3;
   width: 80vw;
+  height: 100vh;
 }
 
 .aboutTitle,
@@ -261,15 +262,11 @@ i {
   margin: 0
 }
 
-.contactpage {
-  width: 80vw;
-  margin: auto;
-}
 
 .contactpage>div>h1 {
   margin-top: 100px;
   text-align: center;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .contactall {
@@ -444,11 +441,14 @@ form>button:hover {
     flex-direction: row;
     background: gray;
   } */
-
+.aboutpage{
+  height: fit-content;
+}
   .aboutContaienr {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap:2.5rem;
     justify-content: center;
   }
 
@@ -461,6 +461,7 @@ form>button:hover {
 
   .aboutTitle, .contactTitle {
     font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .valueContainer {
@@ -487,7 +488,7 @@ form>button:hover {
 
   .valueHeading p {
     display: block;
-    font-size: 3.5vw;
+    font-size: 3.2vw;
     position: absolute;
     top: 100%;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -496,8 +497,15 @@ form>button:hover {
   .contactall {
     display: flex;
     flex-direction: column;
+    gap: 0
+    ;
   }
 
 
 
 }
+
+
+
+
+
