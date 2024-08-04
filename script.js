@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 
 document.querySelectorAll('.navmenu a').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
@@ -13,26 +15,65 @@ document.querySelectorAll('.navmenu a').forEach(anchor => {
   });
 });
 
+// function toggleMenu() {
+//   const navLinks = document.querySelector('.navmenu');
+//   navLinks.classList.toggle('show');
+
+//   // const navtime = gsap.timeline()
+//   //  navtime.from(".show", {
+//   //    opacity:0,
+//   //    backgroundColor: "red",
+//   //    color: "#ffffff",
+//   //    duration: 0.5,
+//   //    y:-100
+//   //  }).from("link",{
+//   //    y:-50,
+//   //    opacity:0,
+//   //    delay:0.5,
+//   //    color: "#ffffff",
+//   //  })
+// }
+
+let isMenuVisible = false; // Track the menu visibility
 
 function toggleMenu() {
-  const navLinks = document.querySelector('.navmenu');
-  navLinks.classList.toggle('show');
+  const navtl = gsap.timeline(); // Create a new GSAP timeline
 
-  // const navtime = gsap.timeline()
-  //  navtime.from(".show", {
-  //    opacity:0,
-  //    backgroundColor: "red",
-  //    color: "#ffffff",
-  //    duration: 0.5,
-  //    y:-100
-  //  }).from("link",{
-  //    y:-50,
-  //    opacity:0,
-  //    delay:0.5,
-  //    color: "#ffffff",
-  //  })
+  if (isMenuVisible) {
+    // Hide the menu
+    navtl.to(".navmenu", {
+      display: "none", // Hide menu
+      opacity: 100, // Fade out
+      duration: 0.5,
+      y: 0,
+      stagger: 0.5
+    }).to(".link", {
+      y: 0,
+      opacity: 100,
+      delay: 0,
+      color: "#ffffff",
+      stagger: 0.5
+    });
+  } else {
+    // Show the menu
+    navtl.to(".navmenu", {
+      display: "flex", // Show menu
+      opacity: 1, // Fade in
+      backgroundColor: "#000000",
+      color: "#ffffff",
+      duration: 0.5,
+      y: 0
+    }).from(".link", {
+      x: -50,
+      opacity: 0,
+      delay: 0.5,
+      color: "#ffffff",
+      stagger: 0.5
+    });
+  }
+
+  isMenuVisible = !isMenuVisible; // Toggle the visibility state
 }
-
 //------------------------------------
 
 const text = SplitType.create('.splittype', { types: 'words' })
@@ -45,7 +86,7 @@ gsap.to("nav", {
     trigger: "nav",
     start: "top -10%",
     end: "top -11%",
-    scrub: 1,
+    scrub: true,
     // markers: true
   },
 })
@@ -72,20 +113,24 @@ if (!isTouchDevice) {
 
 // ------------------------------------
 // moving text up effect animation 
-const tl = gsap.timeline();
+let mm = gsap.matchMedia();
+
+// add a media query. When it matches, the associated function will run
+mm.add("(min-width: 800px)", () => {
+  const tl = gsap.timeline();
+
+
+  tl.from(".logo, .navmenu, .logo>a, .link", {
+    duration: 0.5,
+    color: 'black',
+    y: -100,
+    ease: "power1.out",
+    stagger: 0.2,
+    delay: 1
+  });
+})
 const tl2 = gsap.timeline();
 const tl3 = gsap.timeline();
-
-
-tl.from(".logo, .navmenu, .logo>a, .link", {
-  duration: 0.5,
-  color: 'black',
-  y: -100,
-  ease: "power1.out",
-  stagger: 0.2,
-  delay: 1
-});
-
 tl2
   .from(".textcontainer h1 div", {
     duration: 0.5,
@@ -93,7 +138,6 @@ tl2
     ease: "power1.out",
     stagger: 0.1,
     delay: 0.5,
-    scrub: 1,
   })
   .from(".textcontainer h2 div", {
     duration: 0.1,
@@ -110,6 +154,7 @@ tl2
     // delay: 0.5,
   });
 
+gsap.registerPlugin(ScrollTrigger);
 tl3.from(".aboutText", {
   x: -800,
   duration: 0.5,
@@ -118,7 +163,7 @@ tl3.from(".aboutText", {
     scroller: "body",
     top: "top 60%",
     end: "top 70%",
-    scrub: 1,
+   
     // markers: true
   },
 }).from(".valueContainer, .valueblock", {
@@ -129,7 +174,7 @@ tl3.from(".aboutText", {
     scroller: "body",
     top: "top 60%",
     end: "top 70%",
-    scrub: 1,
+    scrub: true,
     stagger: 0.2,
     // markers: true
   }
@@ -142,7 +187,7 @@ tl3.from(".aboutText", {
     scroller: "body",
     top: "top 40%",
     end: "top 30%",
-    scrub: 1,
+    scrub: true,
     stagger: 0.2,
     // markers: true
   }
@@ -155,7 +200,7 @@ tl3.from(".aboutText", {
     scroller: "body",
     top: "top 40%",
     end: "top 30%",
-    scrub: 1,
+    scrub: true,
     stagger: 0.2,
     // markers: true
   }
@@ -167,7 +212,7 @@ tl3.from(".aboutText", {
     scroller: "body",
     top: "top 60%",
     end: "top 70%",
-    scrub: 1,
+    scrub: true,
     // markers: true
   }
 }).from(".contactright", {
@@ -178,7 +223,7 @@ tl3.from(".aboutText", {
     scroller: "body",
     top: "top 60%",
     end: "top 70%",
-    scrub: 1,
+    scrub: true,
     // markers: true
   }
 })
