@@ -1,12 +1,27 @@
 window.addEventListener('load', () => {
-    setTimeout(() => {
+  setTimeout(() => {
+
+    gsap.from(".spinner > div", {
+      duration: 0.4,
+      y: 100,
+      ease: "power1.out",
+      stagger: 0.2,
+      opacity: 0,
+      // delay: 0.5,
+      onComplete: () => {
         document.getElementById('preloader').style.display = 'none';
         document.getElementById('navbar').style.display = 'flex';
         document.getElementById('main').style.display = 'block';
-    }, 500); // 1-second delay
+        tl.play();
+        tl2.play();
+      }
+    })
+
+
+  }, 100); // 1-second delay
 });
 
-
+gsap.registerPlugin()
 function toggleMenu() {
   const navLinks = document.querySelector('.navmenu');
   navLinks.classList.toggle('show');
@@ -31,13 +46,7 @@ function toggleMenu() {
 const text = SplitType.create('.splittype', { types: 'words' })
 const loadtext = SplitType.create('.spinner', { types: 'words' })
 
-gsap.from(".spinner > div", {
-    duration: 0.1,
-    y: 100,
-    ease: "power1.out",
-    stagger: 0.2,
-    // delay: 0.5,
-  })
+
 
 //------------------------------------
 
@@ -117,33 +126,38 @@ gsap.to("nav", {
 })
 
 let aboutText = document.querySelector(".aboutText");
-let animation = gsap.to(".aboutText",{
+let animation = gsap.to(".aboutText", {
   // backgroundColor: '#000000',
   backgroundImage: "linear-gradient(to right top, black, #333333)",
   duration: 0.2,
- rotateY: -10,
- rotateX: -5,
+  rotateY: -10,
+  rotateX: -5,
 })
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 if (!isTouchDevice) {
   console.log('Desktop')
-aboutText.addEventListener("mouseenter", () => animation.play());
-aboutText.addEventListener("mouseleave", () => animation.reverse());
-}else{ 
+  aboutText.addEventListener("mouseenter", () => animation.play());
+  aboutText.addEventListener("mouseleave", () => animation.reverse());
+} else {
   console.log('mobile')
-aboutText.addEventListener("touchstart", () => animation.play());
-aboutText.addEventListener("touchend", () => animation.reverse());
-aboutText.addEventListener("touchcancel", () => animation.reverse());
+  aboutText.addEventListener("touchstart", () => animation.play());
+  aboutText.addEventListener("touchend", () => animation.reverse());
+  aboutText.addEventListener("touchcancel", () => animation.reverse());
 }
 
+// ------------------------------------
+// moving text up effect animation 
 const tl = gsap.timeline();
 const tl2 = gsap.timeline();
+
+
 tl.from(".logo, .navmenu, .logo>a, .link", {
   duration: 0.5,
   color: 'black',
   y: -100,
   ease: "power1.out",
   stagger: 0.2,
+  delay: 1
 });
 
 tl2
@@ -153,7 +167,7 @@ tl2
     ease: "power1.out",
     stagger: 0.1,
     delay: 0.5,
-    scrub: 2,
+    scrub: 1,
   })
   .from(".textcontainer h2 div", {
     duration: 0.1,
