@@ -186,6 +186,7 @@ nav {
   /* width: 50%; */
   flex: 1;
   font-size: 1.5vw;
+  /* transform: translateX(-100%); */
 }
 
 i {
@@ -254,7 +255,7 @@ i {
 .contactall {
   display: flex;
   gap: 2rem;
-  margin-top: 3rem;
+  margin: 3rem 0;
 }
 
 .contactleft,
@@ -417,10 +418,6 @@ form>button:hover {
     z-index: 9999;
   }
 
-  /* .navmenu {
-    display: none;
-  } */
-
   .navmenu {
     display: none;
     flex-direction: column;
@@ -433,8 +430,9 @@ form>button:hover {
     align-items: center;
     justify-content: center;
     opacity: 0;
-     transform: translateY(-100%);
+    transform: translateY(-100%);
   }
+
   /* .show {
     display: flex;
     flex-direction: column;
@@ -447,12 +445,13 @@ form>button:hover {
     align-items: center;
     justify-content: center;
   } */
-.link{
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  overflow: hidden;
-  opacity:0;
-  transform: translateX(-100%);
-}
+  .link {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
   .navbutton {
     display: block;
     z-index: 9999;
@@ -508,7 +507,8 @@ form>button:hover {
     flex-direction: row;
     background: gray;
   } */
-  .aboutpage, .contactpage {
+  .aboutpage,
+  .contactpage {
     height: fit-content;
   }
 
@@ -520,7 +520,8 @@ form>button:hover {
     justify-content: center;
   }
 
-  .aboutText, .contactText {
+  .aboutText,
+  .contactText {
     text-align: justify;
     /* width: 100%; */
     font-size: 1rem;
@@ -568,9 +569,11 @@ form>button:hover {
     flex-direction: column;
     gap: 0;
   }
-.contactleft p {
-  font-size: 1rem;
-}
+
+  .contactleft p {
+    font-size: 1rem;
+  }
+
   .footer {
     text-align: left;
     padding: 5%;
