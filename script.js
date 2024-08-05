@@ -34,46 +34,52 @@ document.querySelectorAll('.navmenu a').forEach(anchor => {
 //   //  })
 // }
 
+
 let isMenuVisible = false; // Track the menu visibility
-
 function toggleMenu() {
+  console.log(isMenuVisible)
+  const navMenu = document.querySelector('.navmenu');
+    const links = document.querySelectorAll('.link');
   const navtl = gsap.timeline(); // Create a new GSAP timeline
-
   if (isMenuVisible) {
     // Hide the menu
-    navtl.to(".navmenu", {
-      display: "none", // Hide menu
-      opacity: 100, // Fade out
-      duration: 0.5,
-      y: 0,
-      stagger: 0.5
-    }).to(".link", {
-      y: 0,
-      opacity: 100,
-      delay: 0,
-      color: "#ffffff",
-      stagger: 0.5
-    });
+    gsap.timeline().to(links, {
+        x: -100,
+        opacity: 0,
+        delay: 0.2,
+        color: "#ffffff",
+        stagger: 0.3
+      
+      }).to(navMenu, {
+      // display: "none", // Hide menu
+      opacity: 0, // Fade out
+      duration: 0.3,
+      y: -100,
+      onComplete: () => navMenu.style.display = 'none' 
+    })
   } else {
     // Show the menu
-    navtl.to(".navmenu", {
-      display: "flex", // Show menu
+     navMenu.style.display = 'flex'
+      gsap.timeline().to(navMenu, {
+      // display: "flex", // Show menu
       opacity: 1, // Fade in
       backgroundColor: "#000000",
       color: "#ffffff",
-      duration: 0.5,
+      duration: 0.3,
       y: 0
-    }).from(".link", {
-      x: -50,
-      opacity: 0,
-      delay: 0.5,
+    }).to(links, {
+      x: 0,
+      opacity: 1,
+      delay: 0.2,
       color: "#ffffff",
-      stagger: 0.5
+      stagger: 0.3
     });
   }
 
   isMenuVisible = !isMenuVisible; // Toggle the visibility state
 }
+
+document.getElementById('navbutton').addEventListener('click', toggleMenu);
 //------------------------------------
 
 const text = SplitType.create('.splittype', { types: 'words' })

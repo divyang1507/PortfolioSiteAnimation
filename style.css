@@ -432,6 +432,8 @@ form>button:hover {
     margin: 0;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+     transform: translateY(-100%);
   }
   /* .show {
     display: flex;
@@ -448,6 +450,8 @@ form>button:hover {
 .link{
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   overflow: hidden;
+  opacity:0;
+  transform: translateX(-100%);
 }
   .navbutton {
     display: block;
