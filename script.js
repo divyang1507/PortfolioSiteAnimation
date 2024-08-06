@@ -16,7 +16,7 @@ document.querySelectorAll('.navmenu a').forEach(anchor => {
 });
 
 
-let isMenuVisible = false; 
+let isMenuVisible = false;
 function toggleMenu() {
 
   console.log(isMenuVisible)
@@ -151,82 +151,82 @@ tl2
 const tl3 = gsap.timeline();
 tl3
   .from(".aboutText", {
-  x: -800,
-  duration: 1,
-  scrollTrigger: {
-    trigger: ".aboutText",
-    scroller: "body",
-    top: "top 60%",
-    end: "top 70%",
-    scrub: true,
-    markers: true
-  },
-})
+    x: -800,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".aboutText",
+      scroller: "body",
+      top: "top 60%",
+      end: "top 70%",
+      scrub: true,
+      // markers: true
+    },
+  })
   .from(".valueContainer, .valueblock", {
-  x: 800,
-  duration: 1,
-  scrollTrigger: {
-    trigger: ".valueContainer",
-    scroller: "body",
-    top: "top 60%",
-    end: "top 70%",
-    scrub: true,
-    stagger: 0.2,
-    // markers: true
-  }
-})
+    x: 800,
+    duration: 1,
+    scrollTrigger: {
+      trigger: ".valueContainer",
+      scroller: "body",
+      top: "top 60%",
+      end: "top 70%",
+      scrub: true,
+      stagger: 0.2,
+      // markers: true
+    }
+  })
   .from(".contactTitle", {
-  y: -100,
-  opacity: 0,
-  duration: 0.5,
-  scrollTrigger: {
-    trigger: ".contactTitle",
-    scroller: "body",
-    top: "top 40%",
-    end: "top 30%",
-    scrub: true,
-    stagger: 0.2,
-    // markers: true
-  }
-})
+    y: -100,
+    opacity: 0,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".contactTitle",
+      scroller: "body",
+      top: "top 40%",
+      end: "top 30%",
+      scrub: true,
+      stagger: 0.2,
+      // markers: true
+    }
+  })
   .from(".contactText", {
-  y: -100,
-  opacity: 0,
-  duration: 0.5,
-  scrollTrigger: {
-    trigger: ".contactTitle",
-    scroller: "body",
-    top: "top 40%",
-    end: "top 30%",
-    scrub: true,
-    stagger: 0.2,
-    // markers: true
-  }
-})
+    y: -100,
+    opacity: 0,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".contactTitle",
+      scroller: "body",
+      top: "top 40%",
+      end: "top 30%",
+      scrub: true,
+      stagger: 0.2,
+      // markers: true
+    }
+  })
   .from(".contactleft", {
-  x: -800,
-  duration: 0.5,
-  scrollTrigger: {
-    trigger: ".contactleft",
-    scroller: "body",
-    top: "top 60%",
-    end: "top 70%",
-    scrub: true,
-    // markers: true
-  }
-})
+    x: -800,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".contactleft",
+      scroller: "body",
+      top: "top 60%",
+      end: "top 70%",
+      scrub: true,
+      // markers: true
+    }
+  })
   .from(".contactright", {
-  x: 800,
-  duration: 0.5,
-  scrollTrigger: {
-    trigger: ".contactleft",
-    scroller: "body",
-    top: "top 60%",
-    end: "top 70%",
-    scrub: true,
-    // markers: true
-  }
-})
+    x: 800,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".contactleft",
+      scroller: "body",
+      top: "top 60%",
+      end: "top 70%",
+      scrub: true,
+      // markers: true
+    }
+  })
 
 
 
