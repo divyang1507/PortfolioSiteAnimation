@@ -160,8 +160,46 @@ nav {
   height: fit-content;
 }
 
+.services{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+margin-bottom: 120px;
+}
+
+.serviceBox{
+  position: relative;
+  background-color: #00000032;
+  /* height: 5rem; */
+  padding: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+
+}
+.serviceBox::before{
+  content: '';
+ position: absolute;
+ background: radial-gradient(var(--clr), transparent);
+ width: 400px;
+ height: 400px;
+
+}
+.serviceBox >i{
+  font-size: 2.5rem ;
+  color: white;
+}
+.serviceBox .servicehead {
+  font-size: 1.5rem ;
+  color: white;
+  margin-top: 28px;
+}
+.serviceBox >p{
+  font-size: 1rem ;
+  color: white;
+  margin-top: 16px;
+}
 .aboutTitle,
-.contactTitle {
+.contactTitle, .serviceTitle {
   text-align: center;
   font-size: 4vw;
   margin-bottom: 2rem;
