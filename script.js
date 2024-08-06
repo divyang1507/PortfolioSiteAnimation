@@ -86,24 +86,24 @@ gsap.to("nav", {
 
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-// let aboutText = document.querySelector(".aboutText");
-// let animation = gsap.to(".aboutText", {
-//   // backgroundColor: '#000000',
-//   backgroundImage: "linear-gradient(to right top, black, #333333)",
-//   duration: 0.2,
-//   rotateY: -10,
-//   rotateX: -5,
-// })
-// if (!isTouchDevice) {
-//   console.log('Desktop')
-//   aboutText.addEventListener("mouseenter", () => animation.play());
-//   aboutText.addEventListener("mouseleave", () => animation.reverse());
-// } else {
-//   console.log('mobile')
-//   aboutText.addEventListener("touchstart", () => animation.play());
-//   aboutText.addEventListener("touchend", () => animation.reverse());
-//   aboutText.addEventListener("touchcancel", () => animation.reverse());
-// }
+let aboutText = document.querySelector(".aboutText");
+let animation = gsap.to(".aboutText", {
+  // backgroundColor: '#000000',
+  backgroundImage: "linear-gradient(to right top, black, #333333)",
+  duration: 0.2,
+  rotateY: -10,
+  rotateX: -5,
+})
+if (!isTouchDevice) {
+  console.log('Desktop')
+  aboutText.addEventListener("mouseenter", () => animation.play());
+  aboutText.addEventListener("mouseleave", () => animation.reverse());
+} else {
+  console.log('mobile')
+  aboutText.addEventListener("touchstart", () => animation.play());
+  aboutText.addEventListener("touchend", () => animation.reverse());
+  aboutText.addEventListener("touchcancel", () => animation.reverse());
+}
 
 // ------------------------------------
 let mm = gsap.matchMedia();
@@ -149,20 +149,20 @@ tl2
 
 
 const tl3 = gsap.timeline();
-tl3  .from(".aboutTitle", {
-    y: -100,
-    opacity: 0,
-    duration: 0.5,
-    scrollTrigger: {
-      trigger: ".aboutTitle",
-      scroller: "body",
-      top: "top 40%",
-      end: "top 30%",
-      scrub: true,
-      stagger: 0.2,
-      // markers: true
-    }
-  })
+tl3.from(".aboutTitle", {
+  y: -100,
+  opacity: 0,
+  duration: 0.5,
+  scrollTrigger: {
+    trigger: ".aboutTitle",
+    scroller: "body",
+    top: "top 40%",
+    end: "top 30%",
+    scrub: true,
+    stagger: 0.2,
+    // markers: true
+  }
+})
   .from(".aboutText", {
     x: -800,
     duration: 1,
@@ -275,19 +275,28 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 
-
-
-
 let boxes = document.querySelectorAll('.serviceBox');
+
+if (!isTouchDevice) {
+
   boxes.forEach(box => {
-  box.onmousemove = function(e){
- let x = e.pageX - this.offsetLeft;
-    let y =e.pageY - this.offsetTop;
+    box.onmousemove = function(e) {
+      let x = e.pageX - this.offsetLeft;
+      let y = e.pageY - this.offsetTop;
       box.style.setProperty('--x', x + 'px')
       box.style.setProperty('--y', y + 'px')
-}})
-
-
+    }
+  })
+} else {
+  boxes.forEach(box => {
+    box.ontouchmove  = function(e) {
+      let touch = e.touches[0]; // Get the first touch point
+      let x = touch.pageX - this.offsetLeft;
+      let y = touch.pageY - this.offsetTop;
+      box.style.setProperty('--x', x + 'px')
+      box.style.setProperty('--y', y + 'px')
+    }
+  })}
 
 //------------------------------------
 
@@ -346,6 +355,3 @@ let boxes = document.querySelectorAll('.serviceBox');
 
 //------------------------------------
 
-
-//for background changing of navbar 
-// gsap.to(".nav, .link, .logo > a", {
