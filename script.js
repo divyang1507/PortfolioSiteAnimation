@@ -149,7 +149,20 @@ tl2
 
 
 const tl3 = gsap.timeline();
-tl3
+tl3  .from(".aboutTitle", {
+    y: -100,
+    opacity: 0,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".aboutTitle",
+      scroller: "body",
+      top: "top 40%",
+      end: "top 30%",
+      scrub: true,
+      stagger: 0.2,
+      // markers: true
+    }
+  })
   .from(".aboutText", {
     x: -800,
     duration: 1,
