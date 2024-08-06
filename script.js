@@ -278,9 +278,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
+let boxes = document.querySelectorAll('.serviceBox');
+  boxes.forEach(box => {
+  box.onmousemove = function(e){
+ let x = e.pageX - this.offsetLeft;
+    let y =e.pageY - this.offsetTop;
+      box.style.setProperty('--x', x + 'px')
+      box.style.setProperty('--y', y + 'px')
+}})
 
 
 

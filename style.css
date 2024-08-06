@@ -169,31 +169,43 @@ margin-bottom: 120px;
 
 .serviceBox{
   position: relative;
-  background-color: #00000032;
-  /* height: 5rem; */
+  background-color: #000000;
   padding: 20px;
   border-radius: 20px;
   overflow: hidden;
+  z-index: 1;
 
 }
 .serviceBox::before{
   content: '';
  position: absolute;
- background: radial-gradient(var(--clr), transparent);
+ background: radial-gradient(#787878, transparent, transparent);
  width: 400px;
  height: 400px;
-
+top: var(--y);
+left: var(--x);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition : opacity ease 0.5s;
+  z-index: -2;
 }
+.serviceBox:hover::before{
+  opacity: 1;
+}
+
 .serviceBox >i{
   font-size: 2.5rem ;
   color: white;
+  z-index: 2;
 }
 .serviceBox .servicehead {
   font-size: 1.5rem ;
+  z-index: 1;
   color: white;
   margin-top: 28px;
 }
 .serviceBox >p{
+  z-index: 1;
   font-size: 1rem ;
   color: white;
   margin-top: 16px;
@@ -549,7 +561,12 @@ form>button:hover {
   .contactpage {
     height: fit-content;
   }
-
+.services{
+display: flex;
+  flex-direction: column;
+gap: 20px;
+margin-bottom: 120px;
+}
   .aboutContaienr {
     display: flex;
     flex-direction: column;
