@@ -584,7 +584,7 @@ margin-bottom: 120px;
   }
 
   .aboutTitle,
-  .contactTitle, serviceTitle {
+  .contactTitle, .serviceTitle {
     font-size: 2rem;
     margin-bottom: 1.5rem;
   }
