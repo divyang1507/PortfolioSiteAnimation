@@ -149,7 +149,8 @@ nav {
   display: flex;
   background: black;
   border-radius: 0 10px 10px 0;
-  flex-direction: column
+  flex-direction: column;
+  color: gray;
 }
 
 .aboutpage,
@@ -209,6 +210,7 @@ left: var(--x);
   font-size: 1rem ;
   color: white;
   margin-top: 16px;
+  text-align: justify;
 }
 .aboutTitle,
 .contactTitle, .serviceTitle {
@@ -440,7 +442,7 @@ form>button:hover {
   transition: 0.5s;
 }
 
-.footer .row a:hover {
+.footer .row a:hover, .herofooter > i:hover {
   color: #fff;
 }
 
@@ -537,11 +539,14 @@ form>button:hover {
 
   .herofooter {
     position: absolute;
-    top: 70%;
-    left: 18%;
+    top: 75%;
+    left: 0;
+    right:0;
+    margin: auto;
     display: flex;
     border-radius: 10px 10px;
-    flex-direction: row
+    flex-direction: row;
+    width: fit-content;
   }
 
   /* .homepage{
@@ -624,9 +629,13 @@ margin-bottom: 120px;
     flex-direction: column;
     gap: 0;
   }
-
+.contactleft h2{
+  font-size: 1.5rem;
+}
   .contactleft p {
     font-size: 1rem;
+    text-wrap: wrap;
+    word-wrap: break-word;
   }
 
   .footer {
