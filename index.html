@@ -18,7 +18,7 @@
   <!-- <div id="circle"></div> -->
   <nav id='navbar' class="nav">
     <h3 class="logo">
-      <a href="" class=""><img src="./public/NextLogo.png" alt="Girl in a jacket" width="50"> Think Next Innovation</a>
+      <a href="" onClick='toggleMenu()' data-target="#home" class=""><img src="./public/NextLogo.png" alt="Girl in a jacket" width="50"> Think Next Innovation</a>
     </h1>
     <button class="navbutton" id="navbutton">
       <i class="fa-solid fa-bars"></i>
@@ -115,12 +115,10 @@
       </div>
     </section>
     <section id="about" class="aboutpage">
-
       <h2 class="aboutTitle">About us</h2>
-
-      <div class="aboutContaienr">
-        <div class="aboutText">
-          <h4 class=''>
+      <div class="aboutContainer">
+        <div class="aboutBox">
+          <h4>
             At Think Next Innovation, we are passionate about providing top-tier IT solutions that drive success for our
             clients. Our team of skilled professionals is dedicated to delivering projects on time, every time. With a
             commitment to excellence and innovation, we ensure that your technology needs are met with the highest
@@ -131,14 +129,14 @@
         <div class="valueContainer">
           <h3>Our Core Values:</h3>
           <div class="valueblock">
-            <div class="valueHeading valueHeading1">
+            <div class="valueHeading">
               <h3>Innovation</h3>
               <p class="paragraph">Pioneering the latest technologies to create superior solutions.</p>
             </div>
             <i class="fa-solid fa-arrow-right"></i>
           </div>
           <div class="valueblock">
-            <div class="valueHeading valueHeading2">
+            <div class="valueHeading">
               <h3> Reliability</h3>
               <p>Consistently meeting deadlines and project goals.</p>
             </div>
@@ -152,7 +150,7 @@
             <i class="fa-solid fa-arrow-right"></i>
           </div>
           <div class="valueblock">
-            <div class="valueHeading valueHeading4">
+            <div class="valueHeading">
               <h3>Partnership</h3>
               <p>Collaborating closely with clients to understand and achieve their goals.</p>
             </div>
@@ -172,8 +170,8 @@
         <h4 class="contactText">Let's Connect and Create Something Amazing Together We look forward to collaborating with
           you.
         </h4>
-        <div class=contactall>
-          <div class="contactleft">
+        <div class=contactContainer>
+          <div class="contactBox">
             <h3>
               Get in Touch
             </h3>

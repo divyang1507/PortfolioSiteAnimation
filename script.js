@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 
-document.querySelectorAll('.navmenu a').forEach(anchor => {
+document.querySelectorAll('.navmenu a, .logo a ').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
     gsap.to(window, {
@@ -86,8 +86,8 @@ gsap.to("nav", {
 
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-let aboutText = document.querySelector(".aboutText");
-let animation = gsap.to(".aboutText", {
+let aboutBox = document.querySelector(".aboutBox");
+let animation = gsap.to(".aboutBox", {
   // backgroundColor: '#000000',
   backgroundImage: "linear-gradient(to right top, black, #333333)",
   duration: 0.2,
@@ -96,13 +96,13 @@ let animation = gsap.to(".aboutText", {
 })
 if (!isTouchDevice) {
   console.log('Desktop')
-  aboutText.addEventListener("mouseenter", () => animation.play());
-  aboutText.addEventListener("mouseleave", () => animation.reverse());
+  aboutBox.addEventListener("mouseenter", () => animation.play());
+  aboutBox.addEventListener("mouseleave", () => animation.reverse());
 } else {
   console.log('mobile')
-  aboutText.addEventListener("touchstart", () => animation.play());
-  aboutText.addEventListener("touchend", () => animation.reverse());
-  aboutText.addEventListener("touchcancel", () => animation.reverse());
+  aboutBox.addEventListener("touchstart", () => animation.play());
+  aboutBox.addEventListener("touchend", () => animation.reverse());
+  aboutBox.addEventListener("touchcancel", () => animation.reverse());
 }
 
 // ------------------------------------
@@ -149,7 +149,33 @@ tl2
 
 
 const tl3 = gsap.timeline();
-tl3.from(".aboutTitle", {
+tl3.from(".serviceTitle", {
+    y: -100,
+    opacity: 0,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".serviceTitle",
+      scroller: "body",
+      top: "top 40%",
+      end: "top 30%",
+      scrub: true,
+      stagger: 0.2,
+      // markers: true
+    }
+  }).from(".serviceBox", {
+    y: -100,
+    opacity: 0,
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: ".serviceBox",
+      scroller: "body",
+      top: "top 40%",
+      end: "top 30%",
+      scrub: true,
+      stagger: 0.2,
+      // markers: true
+    }
+  }).from(".aboutTitle", {
   y: -100,
   opacity: 0,
   duration: 0.5,
@@ -163,11 +189,11 @@ tl3.from(".aboutTitle", {
     // markers: true
   }
 })
-  .from(".aboutText", {
+  .from(".aboutBox", {
     x: -800,
     duration: 1,
     scrollTrigger: {
-      trigger: ".aboutText",
+      trigger: ".aboutBox",
       scroller: "body",
       top: "top 60%",
       end: "top 70%",
@@ -216,11 +242,11 @@ tl3.from(".aboutTitle", {
       // markers: true
     }
   })
-  .from(".contactleft", {
+  .from(".contactBox", {
     x: -800,
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".contactleft",
+      trigger: ".contactBox",
       scroller: "body",
       top: "top 60%",
       end: "top 70%",
@@ -232,7 +258,7 @@ tl3.from(".aboutTitle", {
     x: 800,
     duration: 0.5,
     scrollTrigger: {
-      trigger: ".contactleft",
+      trigger: ".contactBox",
       scroller: "body",
       top: "top 60%",
       end: "top 70%",
