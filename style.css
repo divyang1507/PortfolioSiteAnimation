@@ -15,16 +15,16 @@ h1{
   font-size: 60px;
 }
 h2{
-  font-size: 48px !important;
-  font-weight: 700 !important;
+  font-size: 48px ;
+  font-weight: 700 ;
 }
 h3{
-  font-size: 28px !important;
-  font-weight: 600 
+  font-size: 28px ;
+  font-weight: 600 ;
 }
 h4{
-  font-size: 22px !important;
-  font-weight: 500 !important 
+  font-size: 22px ;
+  font-weight: 500  ;
 }
 p{
   font-size: 1rem;
@@ -101,7 +101,6 @@ nav {
 }
 
 .homepage {
-  /* width: 100vw; */
   height: 100vh;
   display: flex;
   overflow: hidden;
@@ -110,8 +109,6 @@ nav {
   z-index: 1;
   position: relative;
   overflow-x: hidden;
-  /* background: #ffa8a8; */
-
 }
 
 .image {
@@ -121,7 +118,6 @@ nav {
   width: 100%;
   height: 150%;
   object-fit: cover
-    /* background-color: ; */
 }
 
 .herosection {
@@ -192,6 +188,7 @@ margin-bottom: 120px;
   z-index: 1;
 
 }
+
 .serviceBox::before{
   content: '';
  position: absolute;
@@ -205,6 +202,7 @@ left: var(--x);
   transition : opacity ease 0.5s;
   z-index: -2;
 }
+
 .serviceBox:hover::before{
   opacity: 1;
 }
@@ -214,17 +212,20 @@ left: var(--x);
   color: white;
   z-index: 2;
 }
+
 .serviceBox .servicehead {
   z-index: 1;
   color: white;
   margin-top: 28px;
 }
+
 .serviceBox >p{
   z-index: 1;
   color: white;
   margin-top: 16px;
   text-align: justify;
 }
+
 .aboutTitle,
 .contactTitle, .serviceTitle {
   text-align: center;
@@ -256,8 +257,6 @@ i {
 .valueContainer {
   flex: 1;
 }
-
-
 
 .valueHeading {
   width: 100%;
@@ -294,17 +293,15 @@ i {
   border: 1px solid black;
   padding: 0.9rem 1rem;
   border-radius: 100px;
-  /* position: absolute; */
   right: 0;
   z-index: 1;
   margin: 0
 }
 
 
-.contactpage>div>h1 {
+.contactpage>div>h2 {
   margin-top: 100px;
   text-align: center;
-  /* margin-bottom: 30px; */
 }
 
 .contactall {
@@ -315,7 +312,6 @@ i {
 
 .contactleft,
 .contactright {
-  /* width: 100%; */
   flex: 1
 }
 
@@ -325,23 +321,15 @@ i {
   border: 3px solid #333333;
   background-image: linear-gradient(to right top, #333333, black);
   padding: 2rem;
-  /* height: fit-content; */
-  /* height: 100%; */
   text-align: justify;
-  /* width: 50%; */
-  /* flex: 1; */
   font-size: 1.5vw;
 }
 
-.contactText {
-  font-size: 1.5vw;
-}
-
-.contactleft h2 {
+.contactleft h3 {
   margin-bottom: 1.5rem;
 }
 
-.contactleft p {
+.contactleft h4 {
   margin-bottom: 1rem;
 }
 
@@ -469,6 +457,25 @@ form>button:hover {
 
 
 @media only screen and (max-width: 768px) {
+  h1{
+    font-size: 40px;
+  }
+  h2{
+    font-size: 28px ;
+    font-weight: 700 ;
+  }
+  h3{
+    font-size: 24px ;
+    font-weight: 600 ;
+  }
+  h4{
+    font-size: 20px ;
+    font-weight: 500  ;
+  }
+  p{
+    font-size: 1rem;
+  }
+  
   .logo {
     z-index: 9999;
   }
