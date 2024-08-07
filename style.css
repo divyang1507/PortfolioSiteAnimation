@@ -11,6 +11,24 @@ body {
   /* width: 100%; */
   height: 100%;
 }
+h1{
+  font-size: 60px;
+}
+h2{
+  font-size: 48px !important;
+  font-weight: 700 !important;
+}
+h3{
+  font-size: 28px !important;
+  font-weight: 600 
+}
+h4{
+  font-size: 22px !important;
+  font-weight: 500 !important 
+}
+p{
+  font-size: 1rem;
+}
 
 #main {
   overflow-x: hidden;
@@ -117,20 +135,17 @@ nav {
 }
 
 .herosection h1 {
-  font-size: 6vw;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .herosection h2 {
   text-wrap: nowrap;
-  font-size: 4vw;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .herosection p {
   color: #c4c4c4;
   text-align: center;
-  font-size: 24px;
   margin: auto;
   width: 80%;
   overflow: hidden;
@@ -154,7 +169,7 @@ nav {
 }
 
 .aboutpage,
-.contactpage {
+.contactpage, .servicepage {
   margin: 4rem auto auto auto;
   z-index: 3;
   width: 80vw;
@@ -200,14 +215,12 @@ left: var(--x);
   z-index: 2;
 }
 .serviceBox .servicehead {
-  font-size: 1.5rem ;
   z-index: 1;
   color: white;
   margin-top: 28px;
 }
 .serviceBox >p{
   z-index: 1;
-  font-size: 1rem ;
   color: white;
   margin-top: 16px;
   text-align: justify;
@@ -215,16 +228,13 @@ left: var(--x);
 .aboutTitle,
 .contactTitle, .serviceTitle {
   text-align: center;
-  font-size: 4vw;
   margin-bottom: 2rem;
 
 }
 
 .aboutContaienr {
   display: flex;
-  /* align-items: center; */
   gap: 4rem
-    /* justify-content: space-between; */
 }
 
 .aboutText {
@@ -235,10 +245,7 @@ left: var(--x);
   padding: 2rem;
   height: fit-content;
   text-align: justify;
-  /* width: 50%; */
   flex: 1;
-  font-size: 1.5vw;
-  /* transform: translateX(-100%); */
 }
 
 i {
@@ -250,9 +257,7 @@ i {
   flex: 1;
 }
 
-.valueContainer h2 {
-  font-size: 2.5vw;
-}
+
 
 .valueHeading {
   width: 100%;
@@ -264,15 +269,13 @@ i {
 
 }
 
-.valueHeading h1 {
-  font-size: 2vw;
+.valueHeading h3 {
   background-color: white;
   z-index: 1;
 }
 
 .valueHeading p {
   top: 100%;
-  font-size: 1.2vw;
   display: block;
   position: absolute;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -283,7 +286,7 @@ i {
   padding: 1.5rem 0;
   height: fit-content;
   border-bottom: 1px solid black;
-  font-size: 12px;
+  font-size: 14px;
   color: black;
 }
 
