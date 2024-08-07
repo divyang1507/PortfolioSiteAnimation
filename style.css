@@ -171,9 +171,8 @@ nav {
 .aboutpage,
 .contactpage,
 .servicepage {
-  margin: 4rem auto auto auto;
+  margin: 4rem 6rem auto 6rem ;
   z-index: 3;
-  width: 80vw;
   height: fit-content;
 }
 
