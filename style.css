@@ -355,7 +355,8 @@ textarea {
   border: none;
   outline: none;
   border-bottom: 1px solid gray;
-  transition: border-color 0.3s
+  transition: border-color 0.3s;
+  font-size: 1rem;
 }
 
 input:focus,
@@ -403,6 +404,7 @@ form>button {
   outline-color: rgb(0, 0, 0, .5);
   outline-offset: 0px;
   transition: all 0.5s ease;
+  font-size: 1rem;
 }
 
 form>button:hover {
