@@ -562,11 +562,14 @@ form>button:hover {
     width: fit-content;
   }
 
-  .aboutpage,
-  .contactpage {
-    height: fit-content;
-  }
 
+  .aboutpage,
+.contactpage,
+.servicepage {
+  margin: 4rem 1rem auto 1rem ;
+  z-index: 3;
+  height: fit-content;
+}
   .services {
     display: flex;
     flex-direction: column;
